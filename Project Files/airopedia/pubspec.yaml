@@ -41,6 +41,6 @@ flutter:
   fonts:
     - family: HVD_Comic_Serif_Pro
       fonts:
-        - asset: assets\fonts\hvd_comic_serif_pro\HVD_Comic_Serif_Pro.otf
+        - asset: assets/fonts/hvd_comic_serif_pro/HVD_Comic_Serif_Pro.otf
 
  

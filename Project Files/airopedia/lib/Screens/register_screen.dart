@@ -1,16 +1,13 @@
-import 'package:airopedia/Widgets/login_button_google_widget.dart';
+import 'package:airopedia/Widgets/confirm_password_widget.dart';
+import 'package:airopedia/Widgets/login_link_text_widget.dart';
+import 'package:airopedia/Widgets/register_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/email_widget.dart';
 import 'package:airopedia/Widgets/password_widget.dart';
-import 'package:airopedia/Widgets/login_button_widget.dart';
-import 'package:airopedia/Widgets/login_button_google_widget.dart';
-import 'package:airopedia/Widgets/login_button_facebook_widget.dart';
-import 'package:airopedia/Widgets/signup_link_text_widget.dart';
 
-
-class LoginScreen extends StatelessWidget 
+class RegisterScreen extends StatelessWidget 
 {
-  const LoginScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
 
@@ -23,7 +20,7 @@ class LoginScreen extends StatelessWidget
           const Align(
         alignment: Alignment.topCenter,
         child: Text(
-        'Login', 
+        'Register', 
         style: TextStyle(
           fontFamily: 'HVD_Comic_Serif_Pro',
           fontSize: 42,
@@ -34,10 +31,9 @@ class LoginScreen extends StatelessWidget
         ),
         EmailField(),
         PasswordField(),
-        LoginButton(),
-        LoginButtonGoogle(),
-        LoginButtonFacebook(),
-        SignUpText(context)
+        ConfirmPasswordField(),
+        RegisterButton(),
+        LoginText(context)
         ],
       ),
     ),

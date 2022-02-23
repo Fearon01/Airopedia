@@ -1,9 +1,8 @@
-import 'package:airopedia/Screens/register_screen.dart';
-import 'package:airopedia/Screens/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:airopedia/Screens/login_screen.dart';
 
-Widget SignUpText(BuildContext context) =>    Align
+Widget LoginText(BuildContext context) =>    Align
 (   alignment: Alignment.center,
     child: Padding(
       padding: const EdgeInsets.only(top: 33.0),
@@ -11,7 +10,7 @@ Widget SignUpText(BuildContext context) =>    Align
         text: TextSpan(
           children: [
             const TextSpan(
-              text: 'Don’t have an account?',
+              text: 'Already have an account?',
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 14,
@@ -19,11 +18,11 @@ Widget SignUpText(BuildContext context) =>    Align
               ),
             ),
             TextSpan(
-              text: '  SignUp',
+              text: 'Login',
               recognizer: TapGestureRecognizer()..onTap = () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegisterScreen()));
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
               },
               style: const TextStyle(
                 fontFamily: 'Roboto',
