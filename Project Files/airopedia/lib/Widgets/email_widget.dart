@@ -19,6 +19,7 @@ Widget EmailField() =>    Column
     Padding(
     padding: EdgeInsets.only(left: 30.0, right: 30.0),
     child: TextField(
+    maxLength: 320,
     keyboardType: TextInputType.emailAddress,
     style: TextStyle(
       fontFamily: 'Roboto',
@@ -27,6 +28,7 @@ Widget EmailField() =>    Column
       ),
     textInputAction: TextInputAction.done,
     decoration: InputDecoration(
+      counterText: '',
       // Normal border colour when input is enabled 
       enabledBorder: UnderlineInputBorder(
         borderSide: BorderSide(color: Color(0xfff7f3e8)),

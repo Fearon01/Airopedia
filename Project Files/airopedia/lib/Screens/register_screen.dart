@@ -1,9 +1,9 @@
-import 'package:airopedia/Widgets/confirm_password_widget.dart';
 import 'package:airopedia/Widgets/login_link_text_widget.dart';
 import 'package:airopedia/Widgets/register_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/email_widget.dart';
-import 'package:airopedia/Widgets/password_widget.dart';
+import 'package:airopedia/Widgets/password_field_widget.dart';
+
 
 class RegisterScreen extends StatelessWidget 
 {
@@ -22,7 +22,7 @@ class RegisterScreen extends StatelessWidget
         child: Text(
         'Register', 
         style: TextStyle(
-          fontFamily: 'HVD_Comic_Serif_Pro',
+          fontFamily: 'HVD_Comic_Serif_Pro', 
           fontSize: 42,
           color: Color(0xfff7f3e8),
             ),
@@ -30,8 +30,8 @@ class RegisterScreen extends StatelessWidget
           ),
         ),
         EmailField(),
-        PasswordField(),
-        ConfirmPasswordField(),
+        PasswordField("Password"),
+        PasswordField("Confirm Password"),
         RegisterButton(),
         LoginText(context)
         ],

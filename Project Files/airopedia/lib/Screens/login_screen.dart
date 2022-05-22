@@ -1,11 +1,11 @@
 import 'package:airopedia/Widgets/login_button_google_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/email_widget.dart';
-import 'package:airopedia/Widgets/password_widget.dart';
 import 'package:airopedia/Widgets/login_button_widget.dart';
 import 'package:airopedia/Widgets/login_button_google_widget.dart';
 import 'package:airopedia/Widgets/login_button_facebook_widget.dart';
 import 'package:airopedia/Widgets/signup_link_text_widget.dart';
+import 'package:airopedia/Widgets/password_field_widget.dart';
 
 
 class LoginScreen extends StatelessWidget 
@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget
           ),
         ),
         EmailField(),
-        PasswordField(),
+        PasswordField("Password"),
         LoginButton(),
         LoginButtonGoogle(),
         LoginButtonFacebook(),
