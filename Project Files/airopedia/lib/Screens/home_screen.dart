@@ -1,15 +1,17 @@
 import 'package:airopedia/Widgets/recently_visited_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/current_location_button_widget.dart';
+import 'package:airopedia/Widgets/navigation_bar.dart';
 
 class HomeScreen extends StatelessWidget 
 {
-  const HomeScreen({Key? key}) : super(key: key);
-
+  HomeScreen({Key? key}) : super(key: key);
   @override
 
   Widget build(BuildContext context) => Scaffold(
+
     backgroundColor: const Color(0xff0d67b5),
+    bottomNavigationBar: CustomNavigationBar(2),
     body: Center(
       child: ListView(
         padding: const EdgeInsets.only(top: 100.0),
