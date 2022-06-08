@@ -1,25 +1,24 @@
-import 'package:airopedia/Widgets/recently_visited_button_widget.dart';
+import 'package:airopedia/Widgets/account_settings_button.dart';
 import 'package:flutter/material.dart';
-import 'package:airopedia/Widgets/current_location_button_widget.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
+import 'package:airopedia/Widgets/personalisation_settings_button';
 
-class HomeScreen extends StatelessWidget 
+class SettingsScreen extends StatelessWidget 
 {
-  const HomeScreen({Key? key}) : super(key: key);
+  const SettingsScreen({Key? key}) : super(key: key);
   @override
 
   Widget build(BuildContext context) => Scaffold(
-
-    backgroundColor: const Color(0xff0d67b5),
-    bottomNavigationBar: CustomNavigationBar(2),
-    body: Center(
+     backgroundColor: const Color(0xff0d67b5),
+     bottomNavigationBar: CustomNavigationBar(1),
+     body: Center(
       child: ListView(
         padding: const EdgeInsets.only(top: 100.0),
         children: [
           const Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Home',
+              'Settings',
               style: TextStyle(
                 fontFamily: 'HVD_Comic_Serif_Pro',
                 fontSize: 42,
@@ -27,10 +26,10 @@ class HomeScreen extends StatelessWidget
               ),
             ),
           ),
-        CurrentLocationButton(),
-        RecentlyVisitedButton()
+        AccountSettingsButton(),
+        PersonalisationSettingsButton()
         ],
       ),
-    )
-  );
+    ),
+  ); 
 }
