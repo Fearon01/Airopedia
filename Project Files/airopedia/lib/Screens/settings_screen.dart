@@ -1,6 +1,5 @@
 import 'package:airopedia/Widgets/account_settings_button.dart';
 import 'package:flutter/material.dart';
-import 'package:airopedia/Widgets/navigation_bar.dart';
 import 'package:airopedia/Widgets/personalisation_settings_button';
 
 class SettingsScreen extends StatelessWidget 
@@ -10,7 +9,6 @@ class SettingsScreen extends StatelessWidget
 
   Widget build(BuildContext context) => Scaffold(
      backgroundColor: const Color(0xff0d67b5),
-     bottomNavigationBar: CustomNavigationBar(1),
      body: Center(
       child: ListView(
         padding: const EdgeInsets.only(top: 100.0),
