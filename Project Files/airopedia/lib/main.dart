@@ -1,14 +1,32 @@
-
+import 'package:airopedia/Screens/home_screen.dart';
+import 'package:airopedia/Screens/login_screen.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
-void main() {
-  runApp(MaterialApp(
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  final preferences = await SharedPreferences.getInstance();
+
+  if (preferences.getString('username') == null)  
+  {
+    runApp( MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: const MainPage()));
+    home: LoginScreen()));
+  }
+  else 
+  {
+    runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MainPage()));
+  }
 }
 
 class MainPage extends StatefulWidget 
@@ -29,7 +47,26 @@ class PageState extends State<MainPage>
   {
     return Scaffold(
       backgroundColor: const Color(0xff0d67b5),
-      body: screens[pageIndex],
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder:(context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) 
+          {
+            return Center(child: CircularProgressIndicator());
+          }
+          else if (snapshot.hasError) 
+          {
+            return Center(child: Text('ERROR!'));
+          }
+          else if (snapshot.hasData) 
+          {
+            return screens[pageIndex] ?? const HomeScreen();
+          }
+          else 
+          {
+            return LoginScreen();
+          }
+        }),
       bottomNavigationBar: CurvedNavigationBar(
         items: buttons,
         index: pageIndex,

@@ -1,12 +1,13 @@
 import 'package:airopedia/Widgets/recently_visited_button_widget.dart';
+import 'package:airopedia/Widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/current_location_button_widget.dart';
 
 class HomeScreen extends StatelessWidget 
 {
   const HomeScreen({Key? key}) : super(key: key);
+  
   @override
-
   Widget build(BuildContext context) => Scaffold(
 
     backgroundColor: const Color(0xff0d67b5),
@@ -25,6 +26,7 @@ class HomeScreen extends StatelessWidget
               ),
             ),
           ),
+        SearchBar(),
         CurrentLocationButton(),
         RecentlyVisitedButton()
         ],

@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:airopedia/Screens/login_screen.dart';
 
 Widget LoginText(BuildContext context) =>    Align
 (   alignment: Alignment.center,
@@ -19,11 +18,7 @@ Widget LoginText(BuildContext context) =>    Align
             ),
             TextSpan(
               text: 'Login',
-              recognizer: TapGestureRecognizer()..onTap = () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginScreen()));
-              },
+              recognizer: TapGestureRecognizer()..onTap = () => Navigator.pop(context),
               style: const TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 14,

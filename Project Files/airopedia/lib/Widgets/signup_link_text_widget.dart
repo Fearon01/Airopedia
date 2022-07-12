@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 Widget SignUpText(BuildContext context) =>    Align
 (   alignment: Alignment.center,
     child: Padding(
-      padding: const EdgeInsets.only(top: 33.0),
+      padding: const EdgeInsets.only(top: 20.0),
       child: RichText(
         text: TextSpan(
           children: [
             const TextSpan(
-              text: 'Don’t have an account?',
+              text: 'Don’t have an account?  ',
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontSize: 14,
@@ -19,11 +19,11 @@ Widget SignUpText(BuildContext context) =>    Align
               ),
             ),
             TextSpan(
-              text: '  SignUp',
+              text: 'SignUp',
               recognizer: TapGestureRecognizer()..onTap = () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegisterScreen()));
+                  MaterialPageRoute(builder: (context) => RegisterScreen()));
               },
               style: const TextStyle(
                 fontFamily: 'Roboto',

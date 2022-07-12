@@ -7,10 +7,21 @@ import 'package:airopedia/Widgets/password_field_widget.dart';
 
 class RegisterScreen extends StatelessWidget 
 {
-  const RegisterScreen({Key? key}) : super(key: key);
+  late EmailWidget emailWidget;
+  late PasswordField passwordWidget;
+  late PasswordField confirmPasswordWidget;
+  late RegisterButton registerButton;
+
+  RegisterScreen({Key? key}) : super(key: key) 
+  {
+    emailWidget = EmailWidget();
+    passwordWidget = PasswordField(text: 'Password');
+    confirmPasswordWidget = PasswordField(text: 'Confirm Password');
+    registerButton = RegisterButton(emailController: emailWidget.controller, passwordController: passwordWidget.controller, confirmPasswordController: confirmPasswordWidget.controller);
+
+  }
 
   @override
-
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: const Color(0xff0d67b5),
     body: Center(
@@ -29,10 +40,10 @@ class RegisterScreen extends StatelessWidget
         
           ),
         ),
-        EmailField(),
-        PasswordField("Password"),
-        PasswordField("Confirm Password"),
-        RegisterButton(),
+        emailWidget,
+        passwordWidget,
+        confirmPasswordWidget,
+        registerButton,
         LoginText(context)
         ],
       ),

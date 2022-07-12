@@ -2,12 +2,11 @@ import 'package:airopedia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginButton extends StatelessWidget 
+class ResetPasswordButton extends StatelessWidget 
 {
   final TextEditingController emailController;
-  final TextEditingController passwordController;
 
-  const LoginButton({Key? key,  required this.emailController, required this.passwordController}): super(key: key);
+  const ResetPasswordButton({Key? key,  required this.emailController}): super(key: key);
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -15,7 +14,11 @@ class LoginButton extends StatelessWidget
   child: TextButton
   (
     onPressed: () {
-      Login(context);
+      ResetPassword();
+      Navigator.pushAndRemoveUntil<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(builder: (BuildContext context) => const MainPage()),
+        (route) => false);
     },
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(Color(0xfff7f3e8)),
@@ -27,7 +30,7 @@ class LoginButton extends StatelessWidget
       )
     ),
     child: const Text(
-      'LOGIN',
+      'RESET PASSWORD',
       style: TextStyle(
         fontFamily: 'Roboto',
         fontSize: 12,
@@ -37,20 +40,13 @@ class LoginButton extends StatelessWidget
   ),
 );
 
-Future Login(BuildContext context) async 
+Future ResetPassword() async 
 {
-  await FirebaseAuth.instance.signInWithEmailAndPassword
+  await FirebaseAuth.instance.sendPasswordResetEmail
   (
-    email: emailController.text.trim(),
-    password: passwordController.text.trim()
+    email: emailController.text.trim()
   );
 
-  Navigator.pushAndRemoveUntil<dynamic>(
-        context,
-        MaterialPageRoute<dynamic>(builder: (BuildContext context) => const MainPage()),
-        (route) => false);
-
 }
 
 }
-

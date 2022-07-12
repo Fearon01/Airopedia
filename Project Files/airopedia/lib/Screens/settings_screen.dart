@@ -1,12 +1,12 @@
 import 'package:airopedia/Widgets/account_settings_button.dart';
 import 'package:flutter/material.dart';
-import 'package:airopedia/Widgets/personalisation_settings_button';
+import 'package:airopedia/Widgets/personalisation_settings_button.dart';
 
 class SettingsScreen extends StatelessWidget 
 {
   const SettingsScreen({Key? key}) : super(key: key);
+  
   @override
-
   Widget build(BuildContext context) => Scaffold(
      backgroundColor: const Color(0xff0d67b5),
      body: Center(

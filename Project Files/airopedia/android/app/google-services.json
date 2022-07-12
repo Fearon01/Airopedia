@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265259768756",
+    "project_id": "airopedia-84adf",
+    "storage_bucket": "airopedia-84adf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265259768756:android:6f9587ad52e122e56ef0e1",
+        "android_client_info": {
+          "package_name": "com.example.airopedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265259768756-hah6214uknitkd3bpcpblj5ok6bicpvo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRa-XeYUMJuCg1JqqieU-18sFZ7OKCFe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265259768756-hah6214uknitkd3bpcpblj5ok6bicpvo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
