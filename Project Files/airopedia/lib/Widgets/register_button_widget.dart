@@ -80,9 +80,54 @@ class RegisterButton extends StatelessWidget
   {
     showDialog(context: context, barrierDismissible: false, builder: (context) => Center(child: CircularProgressIndicator()));
 
-    await FirebaseAuth.instance.createUserWithEmailAndPassword
-    (email: emailController.text.trim(), 
-    password: passwordController.text.trim());
+    try 
+    {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword
+      (email: emailController.text.trim(), 
+      password: passwordController.text.trim());
+    } on FirebaseAuthException catch (error) 
+    {
+      String errorCode = error.code;
+
+      switch(errorCode) 
+      {
+        case 'email-already-in-use':
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: ErrorNotification(errorTitle: 'Email In Use', errorDescription: 'The email given is already in use!'),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            ));
+        }
+        return;
+
+        case 'invalid-email':
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: ErrorNotification(errorTitle: 'Invalid Email', errorDescription: 'The email entered is invalid!'),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            ));
+        }
+        return;
+
+        case 'weak-password':
+        {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: ErrorNotification(errorTitle: 'Weak Password', errorDescription: 'The password given is too weak!'),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            ));
+        }
+        return;
+
+        default:
+        return;
+      }
+    }
 
     Navigator.pushAndRemoveUntil<dynamic>(
         context,
