@@ -1,3 +1,4 @@
+import 'package:airopedia/Screens/login_screen.dart';
 import 'package:airopedia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,10 +16,7 @@ class ResetPasswordButton extends StatelessWidget
   (
     onPressed: () {
       ResetPassword();
-      Navigator.pushAndRemoveUntil<dynamic>(
-        context,
-        MaterialPageRoute<dynamic>(builder: (BuildContext context) => const MainPage()),
-        (route) => false);
+      Navigator.pop(context);
     },
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(Color(0xfff7f3e8)),

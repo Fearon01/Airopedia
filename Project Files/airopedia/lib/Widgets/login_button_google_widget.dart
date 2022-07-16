@@ -1,10 +1,22 @@
+import 'package:airopedia/google_sign_in.dart';
+import 'package:airopedia/main.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-Widget LoginButtonGoogle() => Padding(
+Widget LoginButtonGoogle(BuildContext context) => Padding(
   padding: EdgeInsets.only(left: 55.0, right: 55.0, top: 29.0),
   child: TextButton
   (
-    onPressed: null,
+    onPressed: () {
+      final provider = Provider.of<GoogleLogin>(context, listen: false);
+      provider.Login();
+
+      /* Navigator.pushAndRemoveUntil<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) => const MainPage()),
+        (route) => false); */
+    },
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(Color(0xfff7f3e8)),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
