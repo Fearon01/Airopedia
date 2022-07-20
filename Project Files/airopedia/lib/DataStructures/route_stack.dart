@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 
 class RouteStack
 {
-  final __stack = <StatelessWidget>[];
+  final __stack = <Widget>[];
 
-  void Push(StatelessWidget item) => __stack.add(item);
+  void Push(Widget item) => __stack.add(item);
 
-  StatelessWidget Pop() => __stack.removeLast();
+  Widget Pop() => __stack.removeLast();
 
-  StatelessWidget get Peek => __stack.last;
+  Widget get Peek => __stack.last;
 
   bool get isEmpty => __stack.isEmpty;
   bool get isNotEmpty => __stack.isNotEmpty;

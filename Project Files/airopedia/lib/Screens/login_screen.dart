@@ -56,7 +56,8 @@ class LoginScreen extends StatelessWidget {
                       passwordWidget,
                       loginButton,
                       LoginButtonGoogle(context),
-                      LoginButtonFacebook(),
+                      // Implementing Facebook login at later date as it's not a priority
+                      //LoginButtonFacebook(),
                       ForgotPasswordLink(context),
                       SignUpText(context)
                     ],
