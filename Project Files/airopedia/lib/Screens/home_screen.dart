@@ -1,9 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:airopedia/Screens/location.dart';
 import 'package:airopedia/Widgets/recently_visited_button_widget.dart';
+import 'package:airopedia/main.dart';
 import 'package:flutter/material.dart';
 import 'package:airopedia/Widgets/current_location_button_widget.dart';
 import 'package:google_place/google_place.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -132,6 +136,45 @@ class HomeScreenState extends State<HomeScreen> {
                                     title: Text(predictions[index]
                                         .description
                                         .toString()),
+                                    onTap: () async {
+                                      final place = predictions[index].placeId!;
+                                      final details =
+                                          await googlePlace.details.get(place);
+
+                                      if (details != null &&
+                                          details.result != null &&
+                                          mounted) {
+                                        const String airAPIKey =
+                                            'a6415f2a-afad-44e1-9205-409f56dee72f';
+
+                                        final Location coords =
+                                            details.result!.geometry!.location!;
+
+                                        http.Response response = await http.get(
+                                            Uri.parse(
+                                                'http://api.airvisual.com/v2/nearest_city?lat=' +
+                                                    coords.lat.toString() +
+                                                    '&lon=' +
+                                                    coords.lng.toString() +
+                                                    '&key=' +
+                                                    airAPIKey));
+
+                                        Map<String, dynamic> data =
+                                            jsonDecode(response.body);
+
+                            
+
+                                        Navigator.pushAndRemoveUntil<dynamic>(
+                                            context,
+                                            MaterialPageRoute<dynamic>(
+                                                builder:
+                                                    (BuildContext context) =>
+                                                        LocationScreen(
+                                                            locationData:
+                                                                data["data"])),
+                                            (route) => false);
+                                      }
+                                    },
                                   ));
                             }))
                   ],

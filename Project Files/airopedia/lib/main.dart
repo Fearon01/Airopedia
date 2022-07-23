@@ -28,10 +28,7 @@ class MainPage extends StatefulWidget {
 }
 
 class PageState extends State<MainPage> {
-  final navigationKey = GlobalKey<CurvedNavigationBarState>();
-
-  int pageIndex = 2;
-
+  
   @override
   Widget build(BuildContext context) => Scaffold(
       backgroundColor: const Color(0xff0d67b5),
