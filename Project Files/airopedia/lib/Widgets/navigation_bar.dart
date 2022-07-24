@@ -5,9 +5,15 @@ import 'package:airopedia/Screens/login_screen.dart';
 import 'package:airopedia/Screens/observations_screen.dart';
 import 'package:airopedia/Screens/settings_screen.dart';
 import 'package:airopedia/main.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
+
+int pageIndex = 2;
+
 final route = RouteStack();
+
+final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
 final screens = [
   const ObservationsScreen(),

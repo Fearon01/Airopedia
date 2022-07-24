@@ -30,6 +30,11 @@ class HomeScreenState extends State<HomeScreen> {
   Timer? searchTimer;
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
 

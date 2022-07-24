@@ -1,4 +1,7 @@
+import 'package:airopedia/DataStructures/favourite_city.dart';
 import 'package:airopedia/Screens/home_screen.dart';
+import 'package:airopedia/Scripts/favourite_database.dart';
+import 'package:airopedia/Widgets/favourite_button.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
 import 'package:airopedia/main.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -8,11 +11,10 @@ import 'package:intl/intl.dart';
 
 class LocationScreen extends StatelessWidget {
   final Map<String, dynamic> locationData;
-  late String cityName;
+  late Color favouriteForeground;
+  late Color favoriteBackground;
 
-  LocationScreen({Key? key, required this.locationData}) : super(key: key) {
-    cityName = locationData["city"];
-  }
+  LocationScreen({Key? key, required this.locationData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -24,7 +26,7 @@ class LocationScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
-                  cityName,
+                  locationData["city"],
                   style: const TextStyle(
                     fontFamily: 'HVD_Comic_Serif_Pro',
                     fontSize: 42,
@@ -326,12 +328,7 @@ class LocationScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              FloatingActionButton(
-                  onPressed: () {},
-                  child: const Icon(Icons.favorite),
-                  heroTag: null,
-                  backgroundColor: const Color(0xfff7f3e8),
-                  foregroundColor: const Color(0xff0d67b5)),
+              FavouriteButton(locationData: locationData),
               FloatingActionButton(
                   onPressed: () {},
                   child: const Icon(Icons.remove_red_eye),
