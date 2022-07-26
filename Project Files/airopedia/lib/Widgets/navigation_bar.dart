@@ -19,7 +19,7 @@ final screens = [
   ObservationsScreen(),
   const SettingsScreen(),
   const HomeScreen(),
-  const FavouritesScreen(),
+  FavouritesScreen(),
   null
 ];
 
