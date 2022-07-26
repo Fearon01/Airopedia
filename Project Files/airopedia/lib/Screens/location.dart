@@ -1,5 +1,6 @@
 import 'package:airopedia/DataStructures/favourite_city.dart';
 import 'package:airopedia/Screens/home_screen.dart';
+import 'package:airopedia/Screens/observation_edit_screen.dart';
 import 'package:airopedia/Scripts/favourite_database.dart';
 import 'package:airopedia/Widgets/favourite_button.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
@@ -330,7 +331,8 @@ class LocationScreen extends StatelessWidget {
             children: [
               FavouriteButton(locationData: locationData),
               FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(context, MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => ObservationEditScreen(locationData: locationData)));},
                   child: const Icon(Icons.remove_red_eye),
                   heroTag: null,
                   backgroundColor: const Color(0xfff7f3e8),

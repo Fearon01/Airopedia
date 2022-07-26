@@ -16,7 +16,7 @@ final route = RouteStack();
 final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
 final screens = [
-  const ObservationsScreen(),
+  ObservationsScreen(),
   const SettingsScreen(),
   const HomeScreen(),
   const FavouritesScreen(),

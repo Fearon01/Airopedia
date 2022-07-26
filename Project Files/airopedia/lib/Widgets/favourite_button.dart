@@ -35,11 +35,11 @@ class FavouriteButtonState extends State<FavouriteButton> {
         widget.locationData["country"]);
 
     if (favCity == null) {
-      favouriteForeground = Color(0xfff7f3e8);
-      favoriteBackground = Color(0xff50c878);
-    } else {
       favouriteForeground = Color(0xff0d67b5);
       favoriteBackground = Color(0xfff7f3e8);
+    } else {
+      favouriteForeground = Color(0xfff7f3e8);
+      favoriteBackground = Color(0xff50c878);
     }
   }
 

@@ -35,22 +35,25 @@ CREATE TABLE $observationTable (
       ${ObservationFields.id} $idType,
       ${ObservationFields.name} $textType,
       ${ObservationFields.stateName} $textType,
-      ${ObservationFields.countryName} $textType
+      ${ObservationFields.countryName} $textType,
+      ${ObservationFields.observation} $textType,
+      ${ObservationFields.observationTitle} $textType,
+      ${ObservationFields.observationTime} $textType
      )''');
   }
 
-  Future<Observation> Create(Observation city) async {
+  Future<Observation> Create(Observation observation) async {
     final db = await instance.database;
 
-    final id = await db.insert(observationTable, city.ConvertToJson());
-    return city.Copy(id: id);
+    final id = await db.insert(observationTable, observation.ConvertToJson());
+    return observation.Copy(id: id);
   }
 
-  Future<int> Update(Observation city) async 
+  Future<int> Update(Observation observation) async 
   {
     final db = await instance.database;
 
-    return db.update(observationTable, city.ConvertToJson(), where: '${ObservationFields.id} = ?', whereArgs: [city.id]);
+    return db.update(observationTable, observation.ConvertToJson(), where: '${ObservationFields.id} = ?', whereArgs: [observation.id]);
        
   }
 
