@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget
               ),
             ),
           ),
-        AccountSettingsButton(),
+        AccountSettingsButton(context),
         PersonalisationSettingsButton()
         ],
       ),
