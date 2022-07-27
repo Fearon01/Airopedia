@@ -1,12 +1,14 @@
+import 'package:airopedia/Screens/personalisation_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter/cupertino.dart';
 
-Widget PersonalisationSettingsButton() => Padding 
+Widget PersonalisationSettingsButton(BuildContext context) => Padding 
 (
   padding: const EdgeInsets.only(top: 19.0, left: 20.0, right: 20.0),
   child: TextButton(
-    onPressed: null,
+    onPressed: () => Navigator.push(context, MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => PersonalisationSettingsScreen())),
     style: ButtonStyle(
       minimumSize: MaterialStateProperty.all<Size>(const Size(320.0, 100.0)),
       backgroundColor: MaterialStateProperty.all<Color>(const Color(0xfff7f3e8)),
