@@ -48,7 +48,6 @@ class AccountSettingsScreen extends StatelessWidget
                     return; 
               }
 
-              route.Pop();
               screens.last = route.Peek;
               Navigator.pop(context);
             } else {
