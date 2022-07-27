@@ -161,30 +161,27 @@ class ObservationState extends State<ObservationEditScreen> {
           onTap: (int index) {
             if (index == 4) {
               if (route.length == 1) {
+                Navigator.pop(
+                    context);
+                    
                 route.Pop();
-                Navigator.pushAndRemoveUntil<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                        builder: (BuildContext context) =>
-                            screens[4] ?? ObservationsScreen()),
-                    (route) => false);
                 return;
               } else if (route.length < 1) {
-                return;
+                Navigator.pop(
+                    context);
+                    return; 
               }
 
               route.Pop();
               screens.last = route.Peek;
+              Navigator.pop(context);
             } else {
               route.Push(screens[index]!);
             }
 
             pageIndex = index;
-            Navigator.pushAndRemoveUntil<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (BuildContext context) => const MainPage()),
-                (route) => false);
+            Navigator.pop(
+                context);
           },
         ),
         floatingActionButton: Padding(
