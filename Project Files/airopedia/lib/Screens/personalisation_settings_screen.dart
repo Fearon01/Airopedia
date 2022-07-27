@@ -21,7 +21,7 @@ class PersonalisationSettingsScreen extends StatelessWidget
             ),
                       ),
         ),
-        //LanguageButton(context)
+        LanguageButton(context)
         ],
       )
       )
