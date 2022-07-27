@@ -167,17 +167,14 @@ class HomeScreenState extends State<HomeScreen> {
                                         Map<String, dynamic> data =
                                             jsonDecode(response.body);
 
-                            
-
-                                        Navigator.pushAndRemoveUntil<dynamic>(
+                                        Navigator.push(
                                             context,
                                             MaterialPageRoute<dynamic>(
                                                 builder:
                                                     (BuildContext context) =>
                                                         LocationScreen(
                                                             locationData:
-                                                                data["data"])),
-                                            (route) => false);
+                                                                data["data"])));
                                       }
                                     },
                                   ));

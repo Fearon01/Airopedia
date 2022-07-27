@@ -14,8 +14,9 @@ class LocationScreen extends StatelessWidget {
   final Map<String, dynamic> locationData;
   late Color favouriteForeground;
   late Color favoriteBackground;
+  late String title;
 
-  LocationScreen({Key? key, required this.locationData}) : super(key: key);
+  LocationScreen({Key? key, required this.locationData}) : super(key: key); 
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -298,30 +299,27 @@ class LocationScreen extends StatelessWidget {
           onTap: (int index) {
             if (index == 4) {
               if (route.length == 1) {
+                Navigator.pop(
+                    context);
+                    
                 route.Pop();
-                Navigator.pushAndRemoveUntil<dynamic>(
-                    context,
-                    MaterialPageRoute<dynamic>(
-                        builder: (BuildContext context) =>
-                            screens[4] ?? const HomeScreen()),
-                    (route) => false);
                 return;
               } else if (route.length < 1) {
-                return;
+                Navigator.pop(
+                    context);
+                    return; 
               }
 
               route.Pop();
               screens.last = route.Peek;
+              Navigator.pop(context);
             } else {
               route.Push(screens[index]!);
             }
 
             pageIndex = index;
-            Navigator.pushAndRemoveUntil<dynamic>(
-                context,
-                MaterialPageRoute<dynamic>(
-                    builder: (BuildContext context) => const MainPage()),
-                (route) => false);
+            Navigator.pop(
+                context);
           },
         ),
         floatingActionButton: Padding(
