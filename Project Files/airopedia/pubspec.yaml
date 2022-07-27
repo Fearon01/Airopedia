@@ -62,6 +62,18 @@ flutter:
 
   uses-material-design: true
 
+  assets:
+    - assets/images/FrenchFlag.png
+    - assets/images/GBFlag.png
+    - assets/images/GermanFlag.png
+    - assets/images/GreekFlag.png
+    - assets/images/ItalianFlag.png
+    - assets/images/PolishFlag.png
+    - assets/images/PortugueseFlag.png
+    - assets/images/RussianFlag.png
+    - assets/images/SpainFlag.png
+    - assets/images/UkranianFlag.png
+
   fonts:
     - family: HVD_Comic_Serif_Pro
       fonts:
