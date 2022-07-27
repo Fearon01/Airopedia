@@ -1,3 +1,5 @@
+import 'package:airopedia/Widgets/navigation_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tuple/tuple.dart';
@@ -148,5 +150,36 @@ class LanguageScreenState extends State<LanguageScreen> {
             ),
           ],
         ),
-      ));
+      ),
+      bottomNavigationBar: CurvedNavigationBar(
+          items: buttons,
+          index: pageIndex,
+          height: 60,
+          backgroundColor: Colors.transparent,
+          onTap: (int index) {
+            if (index == 4) {
+              if (route.length == 1) {
+                Navigator.pop(
+                    context);
+                    
+                route.Pop();
+                return;
+              } else if (route.length < 1) {
+                Navigator.pop(
+                    context);
+                    return; 
+              }
+
+              screens.last = route.Peek;
+              Navigator.pop(context);
+            } else {
+              route.Push(screens[index]!);
+            }
+
+            pageIndex = index;
+            Navigator.pop(
+                context);
+          },
+        )
+      );
 }
