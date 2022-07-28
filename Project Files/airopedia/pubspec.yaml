@@ -41,6 +41,8 @@ dependencies:
 
   html_unescape: ^2.0.0
 
+  geolocator: ^7.6.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

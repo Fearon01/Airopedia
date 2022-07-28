@@ -1,7 +1,9 @@
 import 'package:airopedia/DataStructures/favourite_city.dart';
+import 'package:airopedia/DataStructures/recently_visited.dart';
 import 'package:airopedia/Screens/home_screen.dart';
 import 'package:airopedia/Screens/observation_edit_screen.dart';
 import 'package:airopedia/Scripts/favourite_database.dart';
+import 'package:airopedia/Scripts/recently_visited_database.dart';
 import 'package:airopedia/Widgets/favourite_button.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
 import 'package:airopedia/main.dart';
@@ -16,7 +18,24 @@ class LocationScreen extends StatelessWidget {
   late Color favoriteBackground;
   late String title;
 
-  LocationScreen({Key? key, required this.locationData}) : super(key: key); 
+  LocationScreen({Key? key, required this.locationData}) : super(key: key)
+  {
+    AddRecentVisit();
+  }
+
+  Future<void> AddRecentVisit() async 
+  {
+    RecentCity? city = await RecentlyVisitedDatabase.instance.ReadUsingName(locationData['city'], locationData['state'], locationData['country']);
+
+    if (city == null) 
+    {
+      RecentlyVisitedDatabase.instance.Create(RecentCity(name: locationData['city'], stateName: locationData['state'], countryName: locationData['country'], lastAccess: DateTime.now()));
+    }
+    else 
+    {
+      RecentlyVisitedDatabase.instance.Update(city);
+    }
+  }
 
   @override
   Widget build(BuildContext context) => Scaffold(
