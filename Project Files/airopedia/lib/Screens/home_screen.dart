@@ -181,7 +181,8 @@ class HomeScreenState extends State<HomeScreen> {
                             }))
                   ],
                 )),
-            Visibility(child: CurrentLocationButton(), visible: buttonVisible),
+            Visibility(
+                child: CurrentLocationButton(context), visible: buttonVisible),
             Visibility(child: RecentlyVisitedButton(), visible: buttonVisible)
           ],
         ),
