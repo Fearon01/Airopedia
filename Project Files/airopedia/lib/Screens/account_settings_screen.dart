@@ -1,11 +1,13 @@
 import 'package:airopedia/Widgets/navigation_bar.dart';
 import 'package:airopedia/Widgets/sign_out_button.dart';
+import 'package:airopedia/main.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AccountSettingsScreen extends StatelessWidget 
 {
+
   @override
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: const Color(0xff0d67b5),
@@ -46,6 +48,13 @@ class AccountSettingsScreen extends StatelessWidget
                 Navigator.pop(
                     context);
                     return; 
+              } else if (ModalRoute.of(context)?.isCurrent ?? false) {
+                Navigator.pushAndRemoveUntil<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(
+                        builder: (BuildContext context) => MainPage()),
+                    (route) => false);
+                return;
               }
 
               screens.last = route.Peek;

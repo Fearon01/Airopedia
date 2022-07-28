@@ -18,21 +18,21 @@ class LocationScreen extends StatelessWidget {
   late Color favoriteBackground;
   late String title;
 
-  LocationScreen({Key? key, required this.locationData}) : super(key: key)
-  {
+  LocationScreen({Key? key, required this.locationData}) : super(key: key) {
     AddRecentVisit();
   }
 
-  Future<void> AddRecentVisit() async 
-  {
-    RecentCity? city = await RecentlyVisitedDatabase.instance.ReadUsingName(locationData['city'], locationData['state'], locationData['country']);
+  Future<void> AddRecentVisit() async {
+    RecentCity? city = await RecentlyVisitedDatabase.instance.ReadUsingName(
+        locationData['city'], locationData['state'], locationData['country']);
 
-    if (city == null) 
-    {
-      RecentlyVisitedDatabase.instance.Create(RecentCity(name: locationData['city'], stateName: locationData['state'], countryName: locationData['country'], lastAccess: DateTime.now()));
-    }
-    else 
-    {
+    if (city == null) {
+      RecentlyVisitedDatabase.instance.Create(RecentCity(
+          name: locationData['city'],
+          stateName: locationData['state'],
+          countryName: locationData['country'],
+          lastAccess: DateTime.now()));
+    } else {
       RecentlyVisitedDatabase.instance.Update(city);
     }
   }
@@ -318,15 +318,20 @@ class LocationScreen extends StatelessWidget {
           onTap: (int index) {
             if (index == 4) {
               if (route.length == 1) {
-                Navigator.pop(
-                    context);
-                    
+                Navigator.pop(context);
+
                 route.Pop();
                 return;
               } else if (route.length < 1) {
-                Navigator.pop(
-                    context);
-                    return; 
+                Navigator.pop(context);
+                return;
+              } else if (ModalRoute.of(context)?.isCurrent ?? false) {
+                Navigator.pushAndRemoveUntil<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(
+                        builder: (BuildContext context) => MainPage()),
+                    (route) => false);
+                return;
               }
 
               route.Pop();
@@ -337,8 +342,7 @@ class LocationScreen extends StatelessWidget {
             }
 
             pageIndex = index;
-            Navigator.pop(
-                context);
+            Navigator.pop(context);
           },
         ),
         floatingActionButton: Padding(
@@ -348,8 +352,14 @@ class LocationScreen extends StatelessWidget {
             children: [
               FavouriteButton(locationData: locationData),
               FloatingActionButton(
-                  onPressed: () {Navigator.push(context, MaterialPageRoute<dynamic>(
-                    builder: (BuildContext context) => ObservationEditScreen(locationData: locationData)));},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute<dynamic>(
+                            builder: (BuildContext context) =>
+                                ObservationEditScreen(
+                                    locationData: locationData)));
+                  },
                   child: const Icon(Icons.remove_red_eye),
                   heroTag: null,
                   backgroundColor: const Color(0xfff7f3e8),

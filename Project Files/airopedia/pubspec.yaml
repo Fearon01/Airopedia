@@ -43,6 +43,8 @@ dependencies:
 
   geolocator: ^7.6.2
 
+  connectivity_plus: ^2.3.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -75,6 +77,7 @@ flutter:
     - assets/images/RussianFlag.png
     - assets/images/SpainFlag.png
     - assets/images/UkranianFlag.png
+    - assets/images/NoConnection.png
 
   fonts:
     - family: HVD_Comic_Serif_Pro

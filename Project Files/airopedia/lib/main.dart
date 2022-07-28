@@ -1,5 +1,6 @@
 import 'package:airopedia/Screens/home_screen.dart';
 import 'package:airopedia/Screens/login_screen.dart';
+import 'package:airopedia/Screens/no_connection_screen.dart';
 import 'package:airopedia/Scripts/favourite_database.dart';
 import 'package:airopedia/Widgets/navigation_bar.dart';
 import 'package:airopedia/google_sign_in.dart';
@@ -41,7 +42,7 @@ class PageState extends State<MainPage> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              return Center(child: Text('ERROR!'));
+              return ConnectionLostScreen(context: context);
             } else if (snapshot.hasData) {
               return screens[pageIndex] ?? const HomeScreen();
             } else {

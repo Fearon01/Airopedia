@@ -9,7 +9,7 @@ Widget LoginButtonGoogle(BuildContext context) => Padding(
   (
     onPressed: () {
       final provider = Provider.of<GoogleLogin>(context, listen: false);
-      provider.Login();
+      provider.Login(context);
     },
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(Color(0xfff7f3e8)),

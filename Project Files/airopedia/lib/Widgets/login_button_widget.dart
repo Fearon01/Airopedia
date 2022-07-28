@@ -1,3 +1,4 @@
+import 'package:airopedia/Screens/no_connection_screen.dart';
 import 'package:airopedia/Widgets/error_notification.dart';
 import 'package:airopedia/main.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +100,11 @@ class LoginButton extends StatelessWidget {
           return;
 
         default:
+          Navigator.push(
+              context,
+              MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) =>
+                      ConnectionLostScreen(context: context)));
           return;
       }
     }
