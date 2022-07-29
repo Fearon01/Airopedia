@@ -17,6 +17,7 @@ class LoginScreen extends StatelessWidget {
   late LoginButton loginButton;
 
   LoginScreen({Key? key}) : super(key: key) {
+    // Initialise widgets so they can access one another
     emailWidget = EmailWidget();
     passwordWidget = PasswordField(text: 'Password');
     loginButton = LoginButton(
@@ -27,6 +28,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
           backgroundColor: const Color(0xff0d67b5),
+          // Check if login changes
           body: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
@@ -43,6 +45,7 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       const Align(
                         alignment: Alignment.topCenter,
+                        // Screen title
                         child: Text(
                           'Login',
                           style: TextStyle(

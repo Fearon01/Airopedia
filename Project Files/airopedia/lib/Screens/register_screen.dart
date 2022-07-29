@@ -14,6 +14,7 @@ class RegisterScreen extends StatelessWidget
 
   RegisterScreen({Key? key}) : super(key: key) 
   {
+    // Initialise widgets so they can access one another
     emailWidget = EmailWidget();
     passwordWidget = PasswordField(text: 'Password');
     confirmPasswordWidget = PasswordField(text: 'Confirm Password');
@@ -30,6 +31,7 @@ class RegisterScreen extends StatelessWidget
         children: [
           const Align(
         alignment: Alignment.topCenter,
+        // Screen title
         child: Text(
         'Register', 
         style: TextStyle(

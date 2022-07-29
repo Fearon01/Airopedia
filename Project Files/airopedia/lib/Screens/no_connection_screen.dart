@@ -27,6 +27,7 @@ class ConnectionLostScreen extends StatelessWidget
         child: Center(
           child: Column(
             children: const [
+              // Page Title
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
@@ -38,6 +39,7 @@ class ConnectionLostScreen extends StatelessWidget
                   ),
                 ),
               ),
+              // No Connection Image
               Align(
                 alignment: Alignment.center,
                 child: Image(image: AssetImage('assets/images/NoConnection.png')),

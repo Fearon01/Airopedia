@@ -56,12 +56,15 @@ class PageState extends State<MainPage> {
         key: navigationKey,
         backgroundColor: Colors.transparent,
         onTap: (int index) {
+          // Change page when back button hit - I'm pretty proud of this feature. Hopefully it doesn't break 
           if (index == 4) {
             if (route.length == 1) {
+              // Go to home if last route
               route.Pop();
               setState(() => pageIndex = 2);
               return;
             } else if (route.length < 1) {
+              // Stop popping an empty stack
               return;
             }
 

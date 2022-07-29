@@ -54,6 +54,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   void Search(String search) async {
+    // Create autocompletes
     AutocompleteResponse? result =
         await googlePlace.autocomplete.get(search, types: '(cities)');
 
@@ -73,6 +74,7 @@ class HomeScreenState extends State<HomeScreen> {
           children: [
             const Align(
               alignment: Alignment.topCenter,
+              // Screen title
               child: Text(
                 'Home',
                 style: TextStyle(
@@ -87,6 +89,7 @@ class HomeScreenState extends State<HomeScreen> {
                     const EdgeInsets.only(top: 19.0, left: 36.0, right: 36.0),
                 child: Column(
                   children: [
+                    //  Search Bar
                     SizedBox(
                       height: 36.0,
                       width: 288.0,
@@ -113,16 +116,19 @@ class HomeScreenState extends State<HomeScreen> {
                                 borderSide: const BorderSide(
                                     color: Color(0xff0d67b5)))),
                         onChanged: (value) {
+                          // Timer to reduce API calls
                           if (searchTimer?.isActive ?? false) {
                             searchTimer!.cancel();
                           }
                           searchTimer = Timer(const Duration(seconds: 1), () {
                             if (value.isNotEmpty) {
+                              // Stop button and recently visited overlap
                               buttonVisible = false;
                               recentlyVisitedVisible = false;
                               Search(value);
                             } else {
                               setState(() {
+                                // Clear autocomplete and display buttons
                                 buttonVisible = true;
                                 recentlyVisitedVisible = true;
                                 searchController.clear();
@@ -133,6 +139,8 @@ class HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
+
+                    // Auto complete tabs list
                     ListView.builder(
                         padding: EdgeInsets.only(top: 15.0),
                         shrinkWrap: true,
@@ -151,6 +159,7 @@ class HomeScreenState extends State<HomeScreen> {
                                 title: Text(
                                     predictions[index].description.toString()),
                                 onTap: () async {
+                                  // Get nearest city. Hopefully city you are in, but it's a flip of a coin tbh. I blame airvisual
                                   final place = predictions[index].placeId!;
                                   final details =
                                       await googlePlace.details.get(place);
@@ -188,7 +197,7 @@ class HomeScreenState extends State<HomeScreen> {
                               ));
                         })
                   ],
-                )),
+                )),    
             Visibility(
                 child: CurrentLocationButton(context), visible: buttonVisible),
             Visibility(
@@ -227,6 +236,7 @@ class HomeScreenState extends State<HomeScreen> {
                 )),
             Visibility(
               visible: recentlyVisitedVisible && buttonVisible,
+              // Display recent cities, scrollable
               child: ListView.builder(
                   primary: false,
                   controller: scrollController,
@@ -249,6 +259,8 @@ class HomeScreenState extends State<HomeScreen> {
                             subtitle: Text(
                                 '${recentCities[index].stateName}, ${recentCities[index].countryName}'),
                             onTap: () async {
+                              // Get location
+
                               const String airAPIKey =
                                   'a6415f2a-afad-44e1-9205-409f56dee72f';
 

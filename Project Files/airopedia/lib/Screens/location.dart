@@ -19,6 +19,7 @@ class LocationScreen extends StatelessWidget {
   late String title;
 
   LocationScreen({Key? key, required this.locationData}) : super(key: key) {
+    // Add location to recent cities list
     AddRecentVisit();
   }
 
@@ -44,6 +45,7 @@ class LocationScreen extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.only(top: 100.0),
             children: [
+              // Location name
               Align(
                 alignment: Alignment.topCenter,
                 child: Text(
@@ -59,12 +61,14 @@ class LocationScreen extends StatelessWidget {
                 height: 68.0,
                 margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5),
                 alignment: Alignment.center,
+                // Space data
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        // Time of data
                         const Text("Time",
                             style: TextStyle(
                                 fontFamily: 'Roboto',
@@ -82,6 +86,7 @@ class LocationScreen extends StatelessWidget {
                         )
                       ],
                     ),
+                    // State information
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -97,6 +102,7 @@ class LocationScreen extends StatelessWidget {
                                 color: Color(0xff0d67b5)))
                       ],
                     ),
+                    // Country information
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -127,6 +133,7 @@ class LocationScreen extends StatelessWidget {
                       const Padding(
                         padding:
                             EdgeInsets.only(top: 15.0, left: 15.0, bottom: 5.0),
+                        // Data title
                         child: Align(
                             alignment: Alignment.topLeft,
                             child: Text("Weather",
@@ -145,30 +152,35 @@ class LocationScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: const [
+                                  // Weather data label
                                   Text("Weather",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Temperature data label
                                   Text("Temperature",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Humidity data label        
                                   Text("Humidity",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Wind data label        
                                   Text("Wind",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Pressure data label        
                                   Text("Pressure",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
@@ -181,11 +193,13 @@ class LocationScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
+                                  // Weather data
                                   Text(locationData["current"]["weather"]["ic"],
                                       style: const TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Temperature data
                                   Text(
                                       locationData["current"]["weather"]["tp"]
                                           .toString(),
@@ -193,6 +207,7 @@ class LocationScreen extends StatelessWidget {
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Humidity data        
                                   Text(
                                       locationData["current"]["weather"]["hu"]
                                           .toString(),
@@ -200,6 +215,7 @@ class LocationScreen extends StatelessWidget {
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Wind speed data
                                   Text(
                                       locationData["current"]["weather"]["ws"]
                                           .toString(),
@@ -207,6 +223,7 @@ class LocationScreen extends StatelessWidget {
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Pressure data
                                   Text(
                                       locationData["current"]["weather"]["pr"]
                                           .toString(),
@@ -234,6 +251,7 @@ class LocationScreen extends StatelessWidget {
                             EdgeInsets.only(top: 15.0, left: 15.0, bottom: 5.0),
                         child: Align(
                             alignment: Alignment.topLeft,
+                            // Data set title
                             child: Text("Pollution",
                                 style: TextStyle(
                                     fontFamily: 'Roboto',
@@ -250,18 +268,21 @@ class LocationScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: const [
+                                  // AQI Value label
                                   Text("AQI Value",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Main pollutant - US label
                                   Text("Main Pollutant - US",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Main pollutant - China label
                                   Text("Main Pollutant - China",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
@@ -274,6 +295,7 @@ class LocationScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
+                                  // AQI value data
                                   Text(
                                       locationData["current"]["pollution"]
                                               ["aqius"]
@@ -282,6 +304,7 @@ class LocationScreen extends StatelessWidget {
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Main pollutant - US data
                                   Text(
                                       locationData["current"]["pollution"]
                                               ["mainus"]
@@ -290,6 +313,7 @@ class LocationScreen extends StatelessWidget {
                                           fontFamily: 'Roboto',
                                           fontSize: 12,
                                           color: Color(0xff0d67b5))),
+                                  // Main pollutant - China data
                                   Text(
                                       locationData["current"]["pollution"]
                                               ["maincn"]
@@ -310,6 +334,7 @@ class LocationScreen extends StatelessWidget {
             ],
           ),
         ),
+        // Screens navigation bar
         bottomNavigationBar: CurvedNavigationBar(
           items: buttons,
           index: pageIndex,
@@ -345,6 +370,7 @@ class LocationScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+        // Favourite and Observation buttons
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(left: 25.0),
           child: Row(

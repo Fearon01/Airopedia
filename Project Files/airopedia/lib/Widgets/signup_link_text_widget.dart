@@ -21,6 +21,7 @@ Widget SignUpText(BuildContext context) =>    Align
             TextSpan(
               text: 'SignUp',
               recognizer: TapGestureRecognizer()..onTap = () {
+                // Go to register screen
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => RegisterScreen()));
